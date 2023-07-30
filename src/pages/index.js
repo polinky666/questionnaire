@@ -28,15 +28,14 @@ export default function Home() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div>
             <label htmlFor="name">Q1. 名前を入力してください（匿名可）。</label>
-            <Input id='name' placeholder="名前" inputProps={...register('name')} />
+            <Input id='name' placeholder="名前" {...register('name')} />
           </div>
           <div>
             <label htmlFor="dateOfBirth">Q2.生年月日を入力して下さい。*</label>
-            <Input id="dateOfBirth" placeholder="生年月日" inputProps={...register('dateOfBirth',
+            <Input id="dateOfBirth" placeholder="生年月日" {...register('dateOfBirth',
               {
                 required: "*がついた項目は必須です", pattern: { value: /^[0-9]{8}/, message: '8桁の数字で入力して下さい' },
               })} />
-
             <ErrorMessage
               errors={errors}
               name="dateOfBirth"
